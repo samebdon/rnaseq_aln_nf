@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#BSUB -o out.%J
+#BSUB -e err.%J
+#BSUB -q normal
+#BSUB -n 2
+#BSUB -M5120
+#BSUB -R "select[mem>5120] rusage[mem=5120]"
+
+nextflow run rnaseq_main.nf -with-conda /software/team360/miniconda/envs/transcriptomics -resume
